@@ -1,0 +1,25 @@
+.imput{
+    padding: 7px;
+    border-radius: 8px;
+    width: 220px;
+    border-color: #33ff14;
+    background-color: black;
+    color: white;
+}
+
+.btn{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-color: #33ff14;
+    padding: 7px;
+    border-radius: 8px;
+    margin: 0px 15px;
+    font-weight: 800;
+}
+
+.btn:hover{
+    font-style: italic;
+    color: #39ff14;
+    font-family: 'OCR A Std', monospace;
+}
