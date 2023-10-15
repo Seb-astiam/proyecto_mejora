@@ -12,21 +12,22 @@ export default function Card(props) {
             <div className={style.ContainerButton}>
             <button onClick={()=>onClose(id)} className={style.btn}>X</button>
             </div>
-
-         <img src={image} alt='' />
+            <div className={style.imagen} >
+               <img src={image} alt='' />
+            </div>
          </div>
 
          <div className={style.bodyCard}>
 
             <div className={style.name}>
-            <Link to={`/Detail/${id}`}> 
-            <h1>{name}</h1>
+            <Link to={`/Detail/${id}`} className={style.Link}> 
+            <h2>{name}</h2>
             </Link>
             </div>
             
          {/* <h2>{status}</h2> */}
-         <h2>{species}</h2>
-         <h2>{gender}</h2>
+         {/* <h2>{species}</h2>
+         <h2>{gender}</h2> */}
          {/* <h2>{origin}</h2> */}
          </div>
 

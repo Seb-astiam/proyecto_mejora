@@ -18,6 +18,7 @@ function App() {
          }
       });
    }
+
    const onClose = (id)=>{
       setCharacters(
          characters.filter((character)=>{
@@ -25,9 +26,13 @@ function App() {
          })
       )
    }
+   const onAddRandomCard = () => {
+      const randomId = Math.floor(Math.random() * 825) + 1; 
+      onSearch(randomId);
+    };
    return (
       <div className='App'>
-         <Nav onSearch={onSearch}/>
+         <Nav onSearch={onSearch} onAddRandomCard={onAddRandomCard}/>
          <Routes>
             <Route path='/Home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/About' element={<About />}/>

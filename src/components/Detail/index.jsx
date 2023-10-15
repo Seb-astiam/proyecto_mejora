@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios'
+import style from './index.module.css';
 
 const Detail = ()=>{
 const {id} = useParams();
@@ -17,7 +18,7 @@ useEffect(() => {
     return setCharacter({});
  }, [id]);
     return (
-        <div>
+        <div className={style.containerDetail}>
             <div>
             <h1>{character.name}</h1>
             <br/>
