@@ -1,31 +1,48 @@
 button{
-    border: 0;
-    background-image: linear-gradient(
-        150deg,
-        #9500ff,
-        #09f,
-        #00DDFF,
-    );
-    border: 8px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    padding: 4px;
+    background-color: black;
     cursor: pointer;
-    transition: .3s;
+    border: none;
+    padding: 10px 26px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 8px;
 }
 
-button span{
-    background-color: #111;
-    padding: 16px 24px;
-    border-radius: 6px;
-    transition: .3s;
-}
+button:hover::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+    45deg,
+    red,
+    blue,
+    deeppink,
+    blue,
+    red,
+    blue,
+    deeppink,
+    blue
+    );
+    background-size: 800%;
+    border-radius: 8px; 
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    }
 
-button:hover span {
-    background-color: none;
-}
-
-button:active{
-    transform: scale(0.9);
+@keyframes glowing {
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
 }

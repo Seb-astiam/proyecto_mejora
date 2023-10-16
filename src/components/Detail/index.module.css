@@ -1,13 +1,30 @@
 .containerDetail{
-    background-color: aqua;
+    background-color: transparent;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    padding: 10px;
+    margin-top: 30px;
 }
 
-h2{
-    border-top: 2px solid;
+
+.containerText{
+    font-family: monospace;
+    color: rgb(171, 248, 18);
+    text-shadow: 0 0 15px white, 3px 3px 0 purple ;
 }
 
+.containerImage{
+    border-radius: 50px;
+    box-shadow: 20px 23px 23px rgb(78, 250, 62);
+}
 
-
+.img{
+    width: 300px;
+    height: 300px;
+    border-radius : 45px;
+    border: double rgb(78, 250, 62) 5px;
+}

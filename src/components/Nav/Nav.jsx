@@ -1,10 +1,9 @@
 import style from './Nav.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
 import { Link } from 'react-router-dom' 
-import Button from '@mui/material/Button'
 
 const Nav = (props) => {
-    const {onSearch, onAddRandomCard} = props
+    const {onSearch, onAddRandomCard, logout} = props
     return (
         <div className={style.containerNav}>
         <Link to={'/About'}>
@@ -18,7 +17,8 @@ const Nav = (props) => {
             <SearchBar onSearch={onSearch}/>
         </div>
 
-        <button onClick={onAddRandomCard} className={style.btn}>Agregar Tarjeta Aleatoria</button>
+        <button onClick={onAddRandomCard} className={style.btn}>Add random card</button>
+        <button onClick={logout} className={style.btn}>Logout</button>
 
         
         </div>

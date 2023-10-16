@@ -13,7 +13,7 @@ export default function Card(props) {
             <button onClick={()=>onClose(id)} className={style.btn}>X</button>
             </div>
             <div className={style.imagen} >
-               <img src={image} alt='' />
+               <img src={image} alt=''className={style.img} />
             </div>
          </div>
 

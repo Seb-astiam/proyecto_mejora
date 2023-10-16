@@ -1,0 +1,58 @@
+.containerForm{
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 600px;
+    height: 450px;
+}
+
+.form{
+    margin-top: 100px;
+}
+
+.label{
+    font-size: 20px;
+    font-family: monospace;
+    margin-left: 20px;
+    color: #33ff14;
+    text-shadow: 0 0 15px white, 3px 3px 0 purple
+}
+
+.input1{
+    padding: 7px;
+    border-radius: 8px;
+    width: 220px;
+    border-color: #33ff14;
+    color: white;
+    margin-left: 55px;
+}
+
+.input2{
+    padding: 7px;
+    border-radius: 8px;
+    width: 220px;
+    border-color: #33ff14;
+    background-color: black;
+    color: white;
+    margin-left: 20px;
+}
+
+.btn{
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    padding: 10px 26px;
+    color: white;
+    font-size: 18px;
+    font-family: monospace;
+    position: relative;
+    border-radius: 8px;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+.btn:hover{
+    color: purple;
+    background-color: white;
+    border: none;
+}

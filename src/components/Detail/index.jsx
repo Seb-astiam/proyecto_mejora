@@ -18,20 +18,22 @@ useEffect(() => {
     return setCharacter({});
  }, [id]);
     return (
-        <div className={style.containerDetail}>
-            <div>
-            <h1>{character.name}</h1>
-            <br/>
-            <h2 >{'Status: '+character.status}</h2>
-            <h2 >{'Specie: '+character.species}</h2>
-            <h2 >{'Sex: '+character.gender}</h2>
-            <h2 >{'Origin: '+character?.origin?.name}</h2>
-            </div>
+      <div className={style.containerDetail}>
+
+      <div className={style.containerImage}>
+         <img src={character.image} alt='' className={style.img}/>
+      </div>
+
+      <div className={style.containerText}>
+         <h1>{character.name}</h1>
+         <br/>
+         <h2 >{'Status: '+character.status}</h2>
+         <h2 >{'Specie: '+character.species}</h2>
+         <h2 >{'Sex: '+character.gender}</h2>
+         <h2 >{'Origin: '+character?.origin?.name}</h2>
+         </div>
             
-            <div>
-             <img src={character.image} alt='' />
-            </div>
-        </div>
+      </div>
     )
 }
 export default Detail
