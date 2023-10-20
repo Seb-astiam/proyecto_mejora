@@ -1,12 +1,12 @@
 const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-const regexNumber = /|d/;
+const regexNumber = /\d/;
 
 const validations = (userData, errors, setErrors)=>{
 
     const newErrors = errors;
 
     if(!userData.email) newErrors.email = "El email es requerido"
-    else if (!regexEmail.test(userData.email)) newErrors.email = "El email es incorrecto"
+    else if (!regexEmail.test(userData.email)) newErrors.email = "Email invalido"
     else newErrors.email = '';
 
     if(!userData.password) newErrors.password = "El password es requerido"

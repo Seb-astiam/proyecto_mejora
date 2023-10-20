@@ -27,6 +27,7 @@ const MyForm = ({login}) => {
 
   return (
     <div className={style.containerForm}>
+      <h1 className={style.h2}>Login</h1>
       <form onSubmit={handleSubmit} className={style.form}>
         <label className={style.label}>Email: </label>
         <input
@@ -48,6 +49,7 @@ const MyForm = ({login}) => {
         <p>{errors.password}</p>
         <button type="submit" className={style.btn}>Submit</button>
       </form>
+      <div className={style.opacidad}></div>
     </div>
   );
 };

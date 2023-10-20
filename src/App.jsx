@@ -36,7 +36,7 @@ function App() {
    }, [access]);
 
    const onSearch = (id) =>{
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
@@ -53,7 +53,7 @@ function App() {
       )
    }
    const onAddRandomCard = () => {
-      const randomId = Math.floor(Math.random() * 825) + 1; 
+      const randomId = Math.floor(Math.random() * 4) + 1; 
       onSearch(randomId);
     };
    return (

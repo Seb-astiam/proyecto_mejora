@@ -8,6 +8,8 @@
 }
 
 .btn{
+    position: relative;
+    z-index: 1;
     cursor: pointer;
     background-color: black;
     color: white;
@@ -18,8 +20,40 @@
     font-weight: 800;
 }
 
-.btn:hover{
-    font-style: italic;
-    color: #39ff14;
-    font-family: 'OCR A Std', monospace;
-}
+.btn:hover::before{
+    content: ''; 
+    font-family: monospace;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+    45deg,
+    white,
+    purple,
+    purple,
+    white,
+    purple,
+    white,
+    purple,
+    white
+    );
+    background-size: 800%;
+    border-radius: 8px; 
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    }
+
+    @keyframes glowing {
+        0%{
+            background-position: 0 0;
+        }
+        50%{
+            background-position: 400% 0;
+        }
+        100%{
+            background-position: 0 0;
+        }
+    }

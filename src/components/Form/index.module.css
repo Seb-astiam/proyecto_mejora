@@ -1,13 +1,18 @@
 .containerForm{
     position: absolute;
-    left: 30%;
+    left: 33%;
     top: 20%;
-    width: 600px;
-    height: 450px;
+    width: 480px;
+    height: 340px;
+    background: transparent;
+    box-shadow: 5px 5px 30px rgb(201, 112, 242);
+    border-radius: 20px;
+    border: double rgb(205, 127, 241);
 }
 
 .form{
     margin-top: 100px;
+    position: absolute;
 }
 
 .label{
@@ -38,9 +43,9 @@
 }
 
 .btn{
-    background-color: black;
+    background-color: transparent;
     cursor: pointer;
-    border: none;
+    border: solid 2px;
     padding: 10px 26px;
     color: white;
     font-size: 18px;
@@ -52,7 +57,26 @@
 }
 
 .btn:hover{
-    color: purple;
-    background-color: white;
+    color: #33ff14 ;
     border: none;
+    font-style: italic;
+    text-shadow: 0 0 15px white, 2px 2px 0 purple
+}
+
+.h2{
+    font-family: monospace;
+    position: absolute;
+    left: 220px;
+    top: 20px;
+    color: #33ff14; 
+    text-shadow: 0 0 15px white, 3px 3px 0 purple;
+}
+
+.opacidad{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: purple;
+    z-index: -1;
+    opacity: .2;
 }
