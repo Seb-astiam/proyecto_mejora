@@ -11,26 +11,28 @@ import './App.css';
 function App() {
    const [characters, setCharacters] = useState([]);
    const {pathname} = useLocation();
-   const [access, setAcces] = useState(false)
-   const EMAIL = 'na@Mail.com';
-   const PASSWORD = 'ja1'
+   const [access, setAccess] = useState(false)
+   // const email = 'na@Mail.com';
+   // const password = 'ja1'
 
    const navigate = useNavigate()
    
-
-   const login = (userData)=>{
-      if(userData.email === EMAIL && userData.password === PASSWORD){
-         setAcces(true);
-         navigate('/Home');
-      }
-      else {
-         alert('Usuario o contraseña erroneos')
-      }
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
+
+
    const logout = ()=>{
-      setAcces(false);
+      setAccess(false);
       navigate('/Home');
    }
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
@@ -48,12 +50,12 @@ function App() {
    const onClose = (id)=>{
       setCharacters(
          characters.filter((character)=>{
-            return character.id !== Number(id);
+            return character.id !== id;
          })
       )
    }
    const onAddRandomCard = () => {
-      const randomId = Math.floor(Math.random() * 4) + 1; 
+      const randomId = Math.floor(Math.random() * 825) + 1; 
       onSearch(randomId);
     };
    return (
