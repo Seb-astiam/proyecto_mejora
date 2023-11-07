@@ -7,26 +7,29 @@ import Detail from './components/Detail';
 import Myform from './components/Form';
 import axios from 'axios'
 import './App.css';
+import Favorites from './components/Favorites/Favorites.jsx';
 
 function App() {
    const [characters, setCharacters] = useState([]);
    const {pathname} = useLocation();
    const [access, setAccess] = useState(false)
-   // const email = 'na@Mail.com';
-   // const password = 'ja1'
 
    const navigate = useNavigate()
-   
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      });
-   }
 
+   const login = async (userData) => {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      try {
+        const { data } = await axios.get(
+          URL + `?email=${email}&password=${password}`
+        );
+        const { access } = data;
+        setAccess(access);
+        if (access) navigate("/home");
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
    const logout = ()=>{
       setAccess(false);
@@ -37,15 +40,20 @@ function App() {
       !access && navigate('/');
    }, [access]);
 
-   const onSearch = (id) =>{
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-         if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
+   async function onSearch(id){
+      try{
+         const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+         const data = response.data
+         if(data.id){
+            setCharacters((oldchars)=> [...oldchars, data])
+         } else { 
             window.alert('¡No hay personajes con este ID!');
-         }
-      });
+      }
    }
+   catch(err){
+      console.log(err)
+   }
+}
 
    const onClose = (id)=>{
       setCharacters(
@@ -66,6 +74,7 @@ function App() {
             <Route path='/Home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/About' element={<About />}/>
             <Route path='/Detail/:id' element={<Detail />} />
+            <Route path='/Favorites' element={<Favorites />}/>
          </Routes>
       </div>
    );
